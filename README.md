@@ -5,7 +5,7 @@ This is a simple book rental calculator app
 For steps to run the application, please refer to [this file](steps.md)
 
 ### Initial DB creation
-As it is using a sqlite database, we need to create a file which can be used as storage for our database
+As this project is using a sqlite database, we need to create a file which can be used as storage for our database
 
 1 Create a file for database with the environment specific database name
 ```bash
@@ -25,7 +25,7 @@ python migrate.py db migrate
 ```
 c. Make any required changes in the generated migration script and run the following command
 ```bash
-python migarte.py db upgrade
+python migrate.py db upgrade
 ```
 
 
