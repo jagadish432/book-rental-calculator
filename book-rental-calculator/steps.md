@@ -12,7 +12,9 @@
 
 5. source envs/dev ("dev" for "development" environment, "prod" for "production" environment)
 
-6. python app.py
+6. Clear the database dependencies by running the "Database migration commands" mentioned in the [README.md](README.md) file
+
+7. python app.py
 
 
 ## update requirements.txt
