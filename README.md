@@ -42,3 +42,23 @@ To see the report generated over the run command, run the following command
 ```bash
 coverage report
 ```
+
+### Dockerize the application
+Go to Builds folder on root level of this project
+1. To build
+```
+docker build -t jaggu4329/python-flask-book-rental-calculator .
+```
+2. To create container from the created image
+```bash
+docker run -td <image_id>
+```
+3. To create tage for this image
+```bash
+docker tag python-flask-book-rental-calculator:latest 4329/python-flask-book-rental-calculator:1.0.0
+```
+4. To push this image to our docker hub repository
+```bash
+docker push 4329/python-flask-book-rental-calculator:1.0.0
+```
+**Note:** Don't forget to do "Docker login" before pushing the image 
