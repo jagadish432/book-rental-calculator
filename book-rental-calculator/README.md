@@ -7,6 +7,8 @@ For steps to run the application, please refer to [this file](steps.md)
 ### Initial DB creation
 As this project is using a sqlite database, we need to create a file which can be used as storage for our database
 
+**Note**: Please make sure you completed the above "dependencies" section to proceed further.
+
 1 Create a file for database with the environment specific database name
 ```bash
 source envs/dev
@@ -28,6 +30,10 @@ c. Make any required changes in the generated migration script and run the follo
 python migrate.py db upgrade
 ```
 
+### Run the application
+```bash
+Python app.py
+```
 
 ### Unittests
 
@@ -44,20 +50,21 @@ coverage report
 ```
 
 ### Dockerize the application
-Go to Builds folder on root level of this project
-1. To build
+Go to the root folder of this project.
+
+1 To build
 ```
 docker build -t jaggu4329/python-flask-book-rental-calculator .
 ```
-2. To create container from the created image
+2 To create container from the created image
 ```bash
 docker run -td <image_id>
 ```
-3. To create tage for this image
+3 To create tage for this image
 ```bash
 docker tag python-flask-book-rental-calculator:latest 4329/python-flask-book-rental-calculator:1.0.0
 ```
-4. To push this image to our docker hub repository
+4 To push this image to our docker hub repository
 ```bash
 docker push 4329/python-flask-book-rental-calculator:1.0.0
 ```
