@@ -28,7 +28,7 @@ class TestClass(unittest.TestCase):
         amount = calculate_amount(payload)
         response = self.client.post("/calculate", data=json.dumps(payload), headers={"Content-Type": "application/json"})
         response = json.loads(response.data.decode().replace("'", '"'))
-        self.assertEqual(response, { "url": "/statement?amount=" + str(amount)})
+        self.assertEqual(response, {"url": "/statement?amount=" + str(amount)})
 
     def test_calculate_fail(self):
         payload = get_json_from_file("test_data/fail_rented_book_items.json", os.path.abspath(os.path.dirname(__file__)))

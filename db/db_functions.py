@@ -15,5 +15,11 @@ def get_book_types_and_charges():
     bookTypesRecords = BookTypes.query.all()
     bookTypes = {}
     for bookType in bookTypesRecords:
-        bookTypes[bookType.type] = bookType.charge
+        record = dict()
+        record["charge"] = bookType.charge
+        record["minimumCharge"] = bookType.minimumCharge
+        record["minimumRetention"] = bookType.minimumRetention
+        record["trialCharge"] = bookType.trialCharge
+        record["trialPeriod"] = bookType.trialPeriod
+        bookTypes[bookType.type] = record
     return bookTypes
