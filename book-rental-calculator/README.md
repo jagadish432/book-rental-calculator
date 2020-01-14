@@ -50,22 +50,25 @@ coverage report
 ```
 
 ### Dockerize the application
-Go to the root folder of this project.
+Go to the root folder of this project( where Dockerfile is located).
 
 1 To build
 ```
-docker build -t jaggu4329/python-flask-book-rental-calculator .
+docker build -t <custom_image_name> .
 ```
 2 To create container from the created image
 ```bash
-docker run -td <image_id>
+docker run --name <custom_container_name> --env-file book-rental-calculator\envs\dev -d -p 5020:5020 <img_id>
 ```
+As we have redirected the port from container port to HOST machine port using **-p** command, 
+now we can access the application in the container form the localhost browser (http://127.0.0.1:5020).
+
 3 To create tage for this image
 ```bash
-docker tag python-flask-book-rental-calculator:latest 4329/python-flask-book-rental-calculator:1.0.0
+docker tag <img_id> <tag-nameeg:4329/python-flask-book-rental-calculator:1.1.0>
 ```
 4 To push this image to our docker hub repository
 ```bash
-docker push 4329/python-flask-book-rental-calculator:1.0.0
+docker push <tag-name eg: 4329/python-flask-book-rental-calculator:1.1.0>
 ```
 **Note:** Don't forget to do "Docker login" before pushing the image 

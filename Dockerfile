@@ -1,22 +1,27 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 MAINTAINER jaggu4329 <jagadish.dachepalli@gmail.com>
 
 RUN apt-get update && \
-        apt-get install -y software-properties-common && \
-        add-apt-repository ppa:jonathonf/python-3.6 && \
-        apt-get update -y  && \
-        apt-get install -y build-essential python3.6 python3.6-dev python3-pip && \
-        apt-get install -y git  && \
-        # update pip
-        python3.6 -m pip install pip --upgrade && \
-        python3.6 -m pip install wheel
+        apt-get install -y --no-install-recommends python3 python3-virtualenv && apt-get install curl -y && apt-get install vim -y
+		
+		
+ENV virtual_env=/opt/venv
+RUN python3 -m virtualenv --python=/usr/bin/python3 $virtual_env
+
+ENV PATH="$virtual_env/bin:$PATH"
+
 
 COPY book-rental-calculator/ /book-rental-calculator
 
+ENV FLASK_APP app
 
-RUN python3.6 -m pip install -r /book-rental-calculator/requirements.txt
+RUN pip install -r /book-rental-calculator/requirements.txt
 
-EXPOSE 80
-EXPOSE 22
 EXPOSE 5020
+
+WORKDIR /book-rental-calculator/
+
+CMD ["sh", "dev.sh"]
+
+

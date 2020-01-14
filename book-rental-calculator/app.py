@@ -36,6 +36,7 @@ def calculate():
         result = { "url": url_for('statement') + "?amount=" + str(amount)}
         return jsonify(result)
     except Exception as e:
+        print(str(e))
         flash("Error occurred: " + str(e), "danger")
         return render_template('errors/404.html'), 400
 
@@ -97,4 +98,4 @@ def calculate_amount(items):
 
 
 if __name__ == '__main__':
-    app.run(host="127.0.0.1", port=5020, debug=app.debug)
+    app.run(host="127.0.0.1", debug=app.debug)
