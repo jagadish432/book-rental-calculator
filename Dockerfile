@@ -1,27 +1,18 @@
-FROM ubuntu:18.04
-
+FROM ubuntu:latest
 MAINTAINER jaggu4329 <jagadish.dachepalli@gmail.com>
 
-RUN apt-get update && \
-        apt-get install -y --no-install-recommends python3 python3-virtualenv && apt-get install curl -y && apt-get install vim -y
-		
-		
-ENV virtual_env=/opt/venv
-RUN python3 -m virtualenv --python=/usr/bin/python3 $virtual_env
+RUN apt-get update -y
 
-ENV PATH="$virtual_env/bin:$PATH"
-
+RUN apt-get install -y python3-pip python3-dev build-essential && apt-get install curl -y && apt-get install vim -y
 
 COPY book-rental-calculator/ /book-rental-calculator
 
-ENV FLASK_APP app
-
-RUN pip install -r /book-rental-calculator/requirements.txt
-
-EXPOSE 5020
+RUN pip3 install -r /book-rental-calculator/requirements.txt
 
 WORKDIR /book-rental-calculator/
 
+EXPOSE 5020
+
+RUN ls -al
+
 CMD ["sh", "dev.sh"]
-
-

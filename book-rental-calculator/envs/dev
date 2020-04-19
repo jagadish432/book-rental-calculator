@@ -1,4 +1,4 @@
-FLASK_SECRET_KEY=ILovePython-this is a secret key
+FLASK_SECRET_KEY=ILovePython-this-is-a-secret-key
 FLASK_ENV=dev
 FLASK_DEBUG=true
 CURRENCY=INR
