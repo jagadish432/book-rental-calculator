@@ -9,7 +9,7 @@ class TestClass(unittest.TestCase):
     def setUp(self):
         # self.app = app.test_client()
         self.app = app
-        self.app.testing = True
+        self.app. OMG-changed11 = True
         self.client = self.app.test_client()
 
     def test_calculate_amount(self):
