@@ -25,8 +25,8 @@ def index():
 @app.route('/calculate', methods=['post'])
 def calculate():
     try:
-        # comment just for trying   OMG-changed11 
-        # 
+        # comment just for trying BFG BFG BFG
+        # BFG
         app.logger.info('processing request')
         app.logger.info(request)
         app.logger.debug(request.get_json())
