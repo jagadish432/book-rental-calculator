@@ -25,8 +25,8 @@ def index():
 @app.route('/calculate', methods=['post'])
 def calculate():
     try:
-        # comment just for trying original-id
-        # original-password
+        # comment just for trying SECRET-ID
+        # SECRET-PASSWORD
         app.logger.info('processing request')
         app.logger.info(request)
         app.logger.debug(request.get_json())
