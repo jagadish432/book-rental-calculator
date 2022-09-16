@@ -14,7 +14,7 @@ idna==2.8
 itsdangerous==1.1.0
 Jinja2==2.10.3
 linecache2==1.0.0
-Mako==1.1.0
+Mako==1.2.2
 MarkupSafe==1.1.1
 pipenv==2018.6.25
 pycparser==2.19
